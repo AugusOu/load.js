@@ -7,15 +7,15 @@
         var c = b || {};
         this.source = a, this.count = 0, this.total = a.length, this.onload = c.onload, this.prefix = c.prefix || "";
            this.defaults = {
-                'background': 'http://mat1.gtimg.com/house_guangzhou/fc/429ld/bg1.jpg',
-                'color':"#fff"
+                'background': '#fff',
+                'color':"#ccc"
             },
                this.options = $.extend({}, this.defaults,o),
-               this.init()
+               this.init();
     };
     //定义Load的方法
     Load.prototype.init = function() {
-        var i='<div id="loadbg" style="position: absolute;left: 0%;top: 0%;width: 100%;height: 100%;background: url('+this.options.background+')no-repeat;background-size: 100% 100%;z-index: 9999"><div id="loadpercent" style="position: absolute;left:50%;top: 50%;width: 10rem;height: 1rem;font-size: 2rem;color: '+this.options.color+';margin: -5rem 0 0 -5rem;"></div></div>';
+        var i='<div id="loadbg" style="position: absolute;left: 0%;top: 0%;width: 100%;height: 100%;background: '+this.check(this.options.background)+';background-size: 100% 100%;z-index: 9999"><div id="loadpercent" style="position: absolute;left:50%;top: 50%;width: 10rem;height: 1rem;font-size: 2rem;color: '+this.options.color+';margin: -5rem 0 0 -5rem;"></div></div>';
         $('body').append(i);
         var a = this;
         a.source.forEach(function(b) {
@@ -58,6 +58,14 @@
                 type: a.type
             });
         };
+    },Load.prototype.check=function (a) {
+        var extStart=a.lastIndexOf('.');
+        var ext=a.substring(extStart,a.length).toUpperCase();
+        if(ext!='.BMP'&&ext!='.PNG'&&ext!='.GIF'&&ext!='.JPG'&&ext!='.JPEG'&&ext!='.SVG'&&ext!='.GIF'){
+            return a;
+        }else {
+            return 'url('+a+')no-repeat';
+        }
     };
     //在插件中使用Load对象
     $.fn.Loadjs = function(a,o) {
