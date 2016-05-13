@@ -13,8 +13,8 @@ Load your JavaScript,Images,Css.
     $(function() {
         $('body').Loadjs(['bg1.jpg','css.css',"app.js'],
                 {
-                    'background': 'load.jpg',//load images
-                    'color':"#fff"           //load textcolor
+                    'background': 'load.jpg',//load background-images
+                    'color':"#fff"           //load text-color
                 }
          );
     });
