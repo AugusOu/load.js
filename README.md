@@ -13,8 +13,10 @@ Load your JavaScript,Images,Css.
     $(function() {
         $('body').Loadjs(['bg1.jpg','css.css',"app.js'],
                 {
-                    'background': 'load.jpg',//load background-images
-                    'color':"#fff"           //load text-color
+                    'background': '#fff',//or imagesurl,load background-images
+                    'color':"#696969",//load text-color
+                    'icon':'http://auguss.top/importemt/icon.png',//or color
+                    'bordercolor':'#ccc'
                 }
          );
     });
