@@ -19,9 +19,9 @@
     Load.prototype.init = function() {
         var i=
             '<div id="loadbg" style="position: absolute;left: 0%;top: 0%;width: 100%;height: 100%;background: '+this.check(this.options.background)+';background-size: 100% 100%;z-index: 9999">' +
-                '<div  style="position: absolute;left:50%;top: 30%;width: 12rem;height: 15.5rem;font-size: 2rem;color: '+this.options.color+';margin: -6rem 0 0 -6rem;">' +
-                    '<div id="top" style="float:left;width: 12rem;height: 12rem;margin:0 auto;"><img style="border-radius: 50%;border:1px '+this.options.bordercolor+' solid;" width="100%" height="100%" src="'+this.options.icon+'"></div>' +
-                    '<div id="loadpercent" style="float: left;width: 12rem;overflow:hidden;text-align:center;height: 3rem;font-size: 3rem;margin-top:0.5rem;color: '+this.options.color+';"></div></div></div>';
+                '<div  style="position: absolute;left:50%;top: 30%;width: 5rem;height: 7.5rem;font-size: 2rem;color: '+this.options.color+';margin: -2.5rem 0 0 -2.5rem;">' +
+                    '<div id="top" style="float:left;width: 5rem;height: 5rem;margin:0 auto;"><img style="border-radius: 50%;border:1px '+this.options.bordercolor+' solid;" width="100%" height="100%" src="'+this.options.icon+'"></div>' +
+                    '<div id="loadpercent" style="float: left;width: 5rem;overflow:hidden;text-align:center;height: 2rem;font-size: 1rem;margin-top:0.5rem;color: '+this.options.color+';"></div></div></div>';
         $('body').append(i);
         console.log('www.loadjs.top to know API');
         var a = this;
