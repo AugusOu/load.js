@@ -5,14 +5,14 @@
     //定义Load的构造函数
     var Load = function(e,a,b,o) {
         var c = b || {};
-        this.source = a, this.count = 0, this.total = a.length, this.onload = c.onload, this.prefix = c.prefix || "";
+        this.source = a; this.count = 0; this.total = a.length; this.onload = c.onload; this.prefix = c.prefix || "";
            this.defaults = {
                 'background': '#fff',
                 'color':"#696969",
                 'icon':'http://auguss.top/importemt/icon.png',
                 'bordercolor':'#ccc'
-            },
-               this.options = $.extend({}, this.defaults,o),
+            };
+               this.options = $.extend({}, this.defaults,o);
                this.init();
     };
     //定义Load的方法
@@ -20,7 +20,7 @@
         var i=
             '<div id="loadbg" style="position: absolute;left: 0%;top: 0%;width: 100%;height: 100%;background: '+this.check(this.options.background)+';background-size: 100% 100%;z-index: 9999">' +
                 '<div  style="position: absolute;left:50%;top: 30%;width: 5rem;height: 7.5rem;font-size: 2rem;color: '+this.options.color+';margin: -2.5rem 0 0 -2.5rem;">' +
-                    '<div id="top" style="float:left;width: 5rem;height: 5rem;margin:0 auto;"><img style="border-radius: 50%;border:1px '+this.options.bordercolor+' solid;" width="100%" height="100%" src="'+this.options.icon+'"></div>' +
+                    '<div id="top" style="float:left;width: 5rem;height: 5rem;margin:0 auto; "><img style="border-radius: 50%;border:1px '+this.options.bordercolor+' solid;" width="100%" height="100%" src="'+this.options.icon+'"></div>' +
                     '<div id="loadpercent" style="float: left;width: 5rem;overflow:hidden;text-align:center;height: 2rem;font-size: 1rem;margin-top:0.5rem;color: '+this.options.color+';"></div></div></div>';
         $('body').append(i);
         console.log('www.loadjs.top to know API');
@@ -35,7 +35,9 @@
                 case "css":
                     a.stylesheet.call(a, d);
                     break;
-
+                case "mp3":
+                    a.audio.call(a, d);
+                    break;
                 case "svg":
                 case "jpg":
                 case "gif":
@@ -55,6 +57,9 @@
     }, Load.prototype.script = function(a) {
         var b = document.createElement("script");
         this.load(b, a), b.type = "text/javascript", b.src = a, document.head.appendChild(b);
+    }, Load.prototype.audio = function(a) {
+        var b = document.createElement("audio");
+        this.load(b, a), b.src = a;
     }, Load.prototype.load = function(a, b) {
         var c = this;
         a.onload = a.onerror = a.onabort = function(a) {
